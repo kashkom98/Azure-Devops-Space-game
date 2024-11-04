@@ -39,7 +39,8 @@ steps:
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
-- task: gulp@1
+# Run gulp tasks using the local gulp installation
+- script: './node_modules/.bin/gulp'
   displayName: 'Run gulp tasks'
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
