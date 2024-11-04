@@ -20,8 +20,11 @@ steps:
     packageType: sdk
     version: '6.x'
 
-# Step to clean node_modules directory (Windows-compatible command)
-- script: 'rmdir /S /Q node_modules'
+# Step to clean node_modules directory (Windows-compatible command with check for existence)
+- powershell: |
+    if (Test-Path -Path node_modules) {
+        Remove-Item -Recurse -Force node_modules
+    }
   displayName: 'Clean node_modules'
 
 - task: Npm@1
