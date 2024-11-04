@@ -20,8 +20,8 @@ steps:
     packageType: sdk
     version: '6.x'
 
-# Step to clean node_modules directory
-- script: 'rm -rf node_modules'
+# Step to clean node_modules directory (Windows-compatible command)
+- script: 'rmdir /S /Q node_modules'
   displayName: 'Clean node_modules'
 
 - task: Npm@1
